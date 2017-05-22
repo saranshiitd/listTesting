@@ -2,6 +2,7 @@ package saransh.menutesting;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -18,10 +19,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.d(TAG, "onCreate: i was here");
         listItems = (ListView) findViewById(R.id.xmlListview);
-        items.add(new menuItem("pizza",300));
-        listItems.setAdapter(new MenuAdapter(MainActivity.this,R.layout.activity_layout_menu,items));
 
+
+        items.add(new menuItem("pizza",300));
+        //Log.d(TAG, "onCreate: i am batman");
+
+
+
+
+        listItems.setAdapter(new MenuAdapter(MainActivity.this,R.layout.activity_layout_menu,items));
+//        Log.d(TAG, "onCreate: dadada");
 
 
     }

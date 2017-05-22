@@ -1,6 +1,7 @@
 package saransh.menutesting;
 
 import android.content.Context;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -18,16 +19,28 @@ import java.util.List;
 public class MenuAdapter extends ArrayAdapter {
 
     private static final String TAG = "MenuAdapter";
-    private final int layoutResource;
-    private final LayoutInflater layoutInflater;
+//    private final int layoutResource;
+//    private final LayoutInflater layoutInflater;
     private List<menuItem> items = new ArrayList<>();
+    Context con;
 
-    public MenuAdapter(Context context, int resource, List<menuItem> applications) {
+
+    public MenuAdapter(Context context, int resource, List<menuItem> items) {
         super(context, resource);
-        this.layoutResource = resource;
-        this.layoutInflater = LayoutInflater.from(context);
+//        this.layoutResource = resource;
+//        this.layoutInflater = LayoutInflater.from(context);
         this.items = items;
+        con = context;
+
     }
+
+
+//    public MenuAdapter(@NonNull Context context, @LayoutRes int resource, int layoutResource, LayoutInflater layoutInflater, List<menuItem> items) {
+//        super(context, resource);
+//        this.layoutResource = layoutResource;
+//        this.layoutInflater = layoutInflater;
+//        this.items = items;
+//    }
 
     @Override
     public int getCount() {
@@ -37,36 +50,31 @@ public class MenuAdapter extends ArrayAdapter {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        ViewHolder viewHolder;
+        LayoutInflater inflater   = (LayoutInflater)con.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        if (convertView == null) {
-            convertView = layoutInflater.inflate(layoutResource, parent, false);
-            viewHolder = new ViewHolder(convertView);
-            convertView.setTag(viewHolder);
+        View row =inflater.inflate(R.layout.activity_layout_menu,null,true);
 
-        }else {
-            viewHolder = (ViewHolder) convertView.getTag();
-        }
+        TextView name=(TextView)row.findViewById(R.id.name);
+        TextView price=(TextView)row.findViewById(R.id.price);
 
-        menuItem currentItem = items.get(position);
-        viewHolder.name.setText(currentItem.getName());
-        viewHolder.price.setText(currentItem.getPrice());
+        name.setText(items.get(position).getName());
+        price.setText(items.get(position).getPrice());
 
-        return convertView;
+
+        return row;
 
     }
 
 
-    private class ViewHolder {
-        private TextView name;
-        private TextView price;
-
-        ViewHolder(View v) {
-            this.name = (TextView) v.findViewById(R.id.name);
-            this.price = (TextView) v.findViewById(R.id.price);
-
+//    private class ViewHolder {
+//        private TextView name;
+//        private TextView price;
+//
+//        ViewHolder(View v) {
+//            this.name = (TextView) v.findViewById(R.id.name);
+//            this.price = (TextView) v.findViewById(R.id.price);
+//
 
         }
 
-    }
-}
+
