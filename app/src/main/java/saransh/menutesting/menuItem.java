@@ -6,9 +6,9 @@ package saransh.menutesting;
 
 public class menuItem {
     private String name;
-    private int price;
+    private String price;
 
-    public menuItem(String name, int price) {
+    public menuItem(String name,String price) {
         this.name = name;
         this.price = price;
     }
@@ -21,11 +21,11 @@ public class menuItem {
         this.name = name;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 }

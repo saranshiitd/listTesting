@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         listItems = (ListView) findViewById(R.id.xmlListview);
 
 
-        items.add(new menuItem("pizza",300));
+        items.add(new menuItem("pizza","300"));
         //Log.d(TAG, "onCreate: i am batman");
 
 

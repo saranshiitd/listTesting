@@ -54,11 +54,11 @@ public class MenuAdapter extends ArrayAdapter {
 
         View row =inflater.inflate(R.layout.activity_layout_menu,null,true);
 
-        TextView name=(TextView)row.findViewById(R.id.name);
-        TextView price=(TextView)row.findViewById(R.id.price);
+        TextView txt1=(TextView)row.findViewById(R.id.name);
+        TextView txt2=(TextView)row.findViewById(R.id.price);
 
-        name.setText(items.get(position).getName());
-        price.setText(items.get(position).getPrice());
+        txt1.setText(items.get(position).getName());
+        txt2.setText(items.get(position).getPrice());
 
 
         return row;
