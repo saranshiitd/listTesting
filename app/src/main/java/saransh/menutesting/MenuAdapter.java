@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,7 +20,7 @@ public class MenuAdapter extends ArrayAdapter {
     private static final String TAG = "MenuAdapter";
     private final int layoutResource;
     private final LayoutInflater layoutInflater;
-    private List<menuItem> items;
+    private List<menuItem> items = new ArrayList<>();
 
     public MenuAdapter(Context context, int resource, List<menuItem> applications) {
         super(context, resource);
